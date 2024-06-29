@@ -14,16 +14,13 @@ server_socket.bind((HOST, PORT))
 server_socket.listen(5)
 print(f'Server listening on {HOST}:{PORT}...')
 
-# Accept incoming connections
-client_socket, client_address = server_socket.accept()
-print(f'Connected to client at {client_address}')
+while True:
+    # Accept incoming connections
+    client_socket, client_address = server_socket.accept()
+    print(f'Connected to client at {client_address}')
 
-# Send a message to the client
-message = "Hello, client! This is the server."
-client_socket.sendall(message.encode())
+    # Handle each client connection independently
+    # In this case, we are not sending any message to the client
 
-# Close the connection with the client
-client_socket.close()
-
-# Close the server socket
-server_socket.close()
+    # Close the connection with the client
+    client_socket.close()
