@@ -11,9 +11,5 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((SERVER_HOST, SERVER_PORT))
 print(f'Connected to server at {SERVER_HOST}:{SERVER_PORT}')
 
-# Receive data from the server
-response = client_socket.recv(1024).decode()
-print(f'Server says: {response}')
-
 # Close the client socket
 client_socket.close()
